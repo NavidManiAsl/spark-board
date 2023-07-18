@@ -2,7 +2,8 @@
     "name": "navid/server",
     "require": {
         "guzzlehttp/guzzle": "^7.7",
-        "slim/slim": "^4.11"
+        "slim/slim": "^4.11",
+        "vlucas/phpdotenv": "^5.5"
     },
     "autoload": {
         "psr-4": {
