@@ -7,3 +7,18 @@ services:
     volumes:
       - ./:/etc/nginx/conf.d
       - ./:/app
+  php: 
+    build: 
+      context: ./docker
+      dockerfile: php.Dockerfile
+    volumes:
+      - ./:/app
+  postgres:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - 5432:5432
+    volumes:
+      - ./docker/pgdata:/var/lib/postgresql/data
