@@ -7,12 +7,16 @@ services:
     volumes:
       - ./:/etc/nginx/conf.d
       - ./:/app
+    networks:
+      - server
   php: 
     build: 
       context: ./docker
       dockerfile: php.Dockerfile
     volumes:
       - ./:/app
+    networks:
+      - server
   postgres:
     image: postgres:latest
     restart: always
@@ -26,3 +30,8 @@ services:
       - 5432:5432
     volumes:
       - ./docker/pgdata:/var/lib/postgresql/data
+    networks:
+      - server
+networks:
+  server:
+    driver: bridge
