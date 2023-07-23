@@ -1,7 +1,7 @@
 <?php
 class DbConnection {
     private static $pdo;
-    private static $dbSettings;
+    // private static $dbSettings;
 
     public static function getInstance() {
         if (!self::$pdo) {

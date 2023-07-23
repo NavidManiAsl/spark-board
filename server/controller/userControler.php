@@ -14,9 +14,19 @@
     if(!$user->validateEmail()){
         throw new ApiException('Invalid username', 400);
     }
+    
+    $user->passwordHash();
     $user->saveUser();
+    
+    return [
+        'message' => 'new user has been registered',
+        'code' =>'200'
+    ];
 
   } catch (ApiException $e){
-
+    return [
+        'message' => $e->getMessage(),
+        'code' => $e->getcode(),
+    ];
   }
  }
