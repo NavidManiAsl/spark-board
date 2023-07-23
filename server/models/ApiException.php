@@ -1,19 +1,8 @@
 <?php
 
-class ApiException {
+class ApiException extends Exception implements Throwable{
 
-    public function __construct(public string $message , public int $code) {
-        
-    }
-    
-    public function getMessage(){
-        return $this->message;
-    }
-    
-    public function getcode(){
-        return $this->code;
-    }
-
+   
     public function setMessage($newMessage){
         $this->message = $newMessage;
     }
