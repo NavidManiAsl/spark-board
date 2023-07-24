@@ -21,21 +21,27 @@ const Login = () => {
     }
     
     const createAccHandler = () => {
-        SetRegister(true)
+        SetRegister(!register)
     }
 
     const signinHandler = () => {
 
     }
+    const backHandler = () => {
+        SetRegister(!register);
+    }
 
     return (
        <FormContainer>
+        {!register &&
         <LoginForm
         loginClickHandler={loginHandler}
         forgotClickHandler={forgotPasswordHandler}
-        createAccClickHandler={createAccHandler}/>
+        createAccClickHandler={createAccHandler}/>}
         {register && 
-        < SigninForm signinClickHandler={signinHandler}
+        < SigninForm 
+        signinClickHandler={signinHandler}
+        backClickHandler={backHandler}
         />}
        </FormContainer>
     )

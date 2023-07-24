@@ -59,6 +59,13 @@ size:2;
 width:100%;
 margin-bottom:20px;
 `
+const FormIcon = styled.img`
+width:30px;
+height:auto;
+&:hover {
+  cursor: pointer;
+}
+`
 export {
     FormButton,
     FormContainer,
@@ -67,5 +74,6 @@ export {
     FormTitle,
     FormText,
     FormLink,
-    FormLine
+    FormLine,
+    FormIcon
 }

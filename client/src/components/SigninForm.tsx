@@ -2,11 +2,14 @@ import {
     FormButton, 
     FormContainer, 
     FormLabel, 
-    FormInput, 
+    FormInput,
+    FormIcon 
 } from "./components";
+import { BackIcon } from "../assets";
 
-const SigninForm = ({signinClickHandler}) => {
+const SigninForm = ({signinClickHandler, backClickHandler}) => {
 
+    
     
     return (
        <FormContainer>
@@ -19,6 +22,7 @@ const SigninForm = ({signinClickHandler}) => {
         <FormLabel>Repeat password</FormLabel>
         <FormInput/>
         <FormButton onClick={signinClickHandler}>Sign in</FormButton>
+        <FormIcon src={BackIcon} onClick={backClickHandler}/>
        </FormContainer>
     )
 }
