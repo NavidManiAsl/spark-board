@@ -32,13 +32,40 @@ const FormButton = styled.button`
   }
 `
 const FormTitle = styled.h1`
-color: purple;
+color: darkgray;
 font-family: monospace;
+`
+const FormText = styled.p`
+    font-size: 16px;
+    margin-bottom: 8px;
+`
+const FormLink = styled.a`
+color: darkblue;
+text-decoration:none;
+font-size: 16px;
+margin: 8px auto;
+
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+
+`
+const FormLine = styled.hr`
+color:black;
+opacity:0.5;
+size:2;
+width:100%;
+margin-bottom:20px;
 `
 export {
     FormButton,
     FormContainer,
     FormInput,
     FormLabel,
-    FormTitle
+    FormTitle,
+    FormText,
+    FormLink,
+    FormLine
 }
