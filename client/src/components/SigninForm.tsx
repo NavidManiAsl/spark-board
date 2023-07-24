@@ -5,7 +5,7 @@ import {
     FormInput, 
 } from "./components";
 
-const SigninForm = () => {
+const SigninForm = ({signinClickHandler}) => {
 
     
     return (
@@ -18,7 +18,7 @@ const SigninForm = () => {
         <FormInput/>
         <FormLabel>Repeat password</FormLabel>
         <FormInput/>
-        <FormButton>Sign in</FormButton>
+        <FormButton onClick={signinClickHandler}>Sign in</FormButton>
        </FormContainer>
     )
 }
