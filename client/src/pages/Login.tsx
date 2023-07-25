@@ -9,10 +9,34 @@ import {
 import LoginForm from "../components/LoginForm";
 import { useState } from "react";
 import SigninForm from "../components/SigninForm";
+import { useApiRequest } from "../utils/ApiRequest";
+
 
 
 const Login = () => {
     const [register, SetRegister] = useState(false);
+    const [signinFormData, setSigninFormdata] = useState({
+        name: '',
+        email: '',
+        password: '',
+        repeat: '',
+    })
+    const {data, error, loading, apiCall} = useApiRequest()
+
+    const handelSigninFormChange = (name, value) =>{
+        setSigninFormdata({
+            ...signinFormData,
+            [name]:value})
+    }
+    
+    const signinHandler = (event)=>{
+       event.preventDefault();
+       const url = 'http://localhost/register'
+       const method = 'post'
+       apiCall(url, method, signinFormData)
+    }
+    
+     
     const loginHandler = ()=>{
         console.log('click')
     }
@@ -24,9 +48,7 @@ const Login = () => {
         SetRegister(!register)
     }
 
-    const signinHandler = () => {
-
-    }
+    
     const backHandler = () => {
         SetRegister(!register);
     }
@@ -40,8 +62,10 @@ const Login = () => {
         createAccClickHandler={createAccHandler}/>}
         {register && 
         < SigninForm 
-        signinClickHandler={signinHandler}
+        formData={signinFormData}
         backClickHandler={backHandler}
+        changeHandler= {handelSigninFormChange}
+        onSubmit = {signinHandler}
         />}
        </FormContainer>
     )
