@@ -22,6 +22,7 @@ const Login = () => {
         repeat: '',
     })
     const {data, error, loading, apiCall} = useApiRequest()
+    const [message, setMessage] = useState(false) 
 
     const handelSigninFormChange = (name, value) =>{
         setSigninFormdata({
@@ -34,6 +35,13 @@ const Login = () => {
        const url = 'http://localhost/register'
        const method = 'post'
        apiCall(url, method, signinFormData)
+       setMessage(true)
+       setSigninFormdata({
+        name: '',
+        email: '',
+        password: '',
+        repeat: '',
+    })
     }
     
      
@@ -51,6 +59,7 @@ const Login = () => {
     
     const backHandler = () => {
         SetRegister(!register);
+        setMessage(false)
     }
 
     return (
@@ -61,11 +70,12 @@ const Login = () => {
         forgotClickHandler={forgotPasswordHandler}
         createAccClickHandler={createAccHandler}/>}
         {register && 
-        < SigninForm 
+        <SigninForm 
         formData={signinFormData}
         backClickHandler={backHandler}
         changeHandler= {handelSigninFormChange}
         onSubmit = {signinHandler}
+        showMessage={message}
         />}
        </FormContainer>
     )

@@ -3,13 +3,14 @@ import {
     FormContainer, 
     FormLabel, 
     FormInput,
-    FormIcon 
+    FormIcon, 
+    FormText
 } from "./components";
 import { BackIcon } from "../assets";
 import { emailValidation, usernameValidation, passwordRepeatValidation, passwordValidation } from "../utils/validation";
 
 
-const SigninForm = ({backClickHandler, formData, changeHandler, onSubmit}) => {
+const SigninForm = ({backClickHandler, formData, changeHandler, onSubmit, showMessage }) => {
 
    const handelChange = (event)=>{
     const {name, value} =event.target;
@@ -36,6 +37,7 @@ const SigninForm = ({backClickHandler, formData, changeHandler, onSubmit}) => {
             !passwordValidation(formData.password) ||
             !passwordRepeatValidation(formData.password, formData.repeat)}>Sign in</FormButton>
         <FormIcon src={BackIcon} onClick={backClickHandler}/>
+        {showMessage && <FormText>Email validatiion wiol be sent</FormText>}
        </FormContainer>
     )
 }
