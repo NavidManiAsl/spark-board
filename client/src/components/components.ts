@@ -26,6 +26,12 @@ const FormButton = styled.button`
     border: none;
     border-radius: 5px;
     cursor: pointer;
+  &:disabled {
+    opacity: 0.5;
+    &:hover {
+      background-color: #007bff;
+    }
+  }
 
   &:hover {
     background-color: #0056b3;

@@ -1,7 +1,6 @@
 const usernameValidation = (userName:string) => {
    
    const regPattern= /^[a-zA-Z0-9][a-zA-Z0-9_-]{2,19}$/
-
    return regPattern.test(userName);
 }
 
@@ -11,7 +10,7 @@ const emailValidation = (email:string) => {
     return regPattern.test(email);
 }
 
-const passwordValidtion = (password:string) => {
+const passwordValidation = (password:string) => {
     
     const regPattern = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/
 
@@ -26,6 +25,6 @@ const passwordRepeatValidation = (password:string, repeatPassword:string) => {
 export {
     usernameValidation,
     emailValidation,
-    passwordValidtion,
+    passwordValidation,
     passwordRepeatValidation,
 }
